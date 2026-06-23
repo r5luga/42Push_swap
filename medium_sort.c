@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   medium_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dda-cruz <dda-cruz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lpedroso <lpedroso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 08:14:22 by dda-cruz          #+#    #+#             */
-/*   Updated: 2026/06/22 08:14:23 by dda-cruz         ###   ########.fr       */
+/*   Updated: 2026/06/23 17:30:04 by lpedroso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
@@ -36,8 +35,8 @@ static int	ft_isqrt(int n)
 	return (r);
 }
 
-static void	push_chunk_to_b(t_list **stack_a, t_list **stack_b,
-		t_chunk *ck, t_bench *bench)
+static void	push_chunk_to_b(t_list **stack_a, t_list **stack_b, t_chunk *ck,
+		t_bench *bench)
 {
 	int	remaining;
 	int	scanned;
@@ -48,8 +47,7 @@ static void	push_chunk_to_b(t_list **stack_a, t_list **stack_b,
 	while (remaining > 0)
 	{
 		scanned = 0;
-		while (scanned < remaining
-			&& ((*stack_a)->index < ck->chunk
+		while (scanned < remaining && ((*stack_a)->index < ck->chunk
 				|| (*stack_a)->index > high))
 			ra_cnt(stack_a, bench), scanned++;
 		if (scanned == remaining)
@@ -79,8 +77,8 @@ static int	count_smaller_in_a(t_list *a, int val, int sorted)
 	return (smaller);
 }
 
-static void	insert_top_b_into_a(t_list **stack_a, t_list **stack_b,
-		int sorted, t_bench *bench)
+static void	insert_top_b_into_a(t_list **stack_a, t_list **stack_b, int sorted,
+		t_bench *bench)
 {
 	int	smaller;
 	int	larger;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simple_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dda-cruz <dda-cruz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lpedroso <lpedroso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 10:50:23 by dda-cruz          #+#    #+#             */
-/*   Updated: 2026/06/18 13:25:28 by dda-cruz         ###   ########.fr       */
+/*   Updated: 2026/06/23 17:17:43 by lpedroso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ static int	find_min_pos(t_list *stack_a, int size)
 	return (min_pos);
 }
 
-static void	rotate_min_to_top(t_list **stack_a, int min_pos,
-		int size, t_bench *bench)
+static void	rotate_min_to_top(t_list **stack_a, int min_pos, int size,
+		t_bench *bench)
 {
 	int	i;
 
@@ -69,6 +69,8 @@ void	simple_sort(t_list **stack_a, t_list **stack_b, t_bench *bench)
 	{
 		min_pos = find_min_pos(*stack_a, remaining);
 		rotate_min_to_top(stack_a, min_pos, remaining, bench);
+		if ((ft_disorder(*stack_a) == 0) && *stack_b == NULL)
+			break ;
 		pb_cnt(stack_a, stack_b, bench);
 		remaining--;
 	}

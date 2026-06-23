@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dda-cruz <dda-cruz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lpedroso <lpedroso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 10:51:15 by dda-cruz          #+#    #+#             */
-/*   Updated: 2026/06/16 10:51:16 by dda-cruz         ###   ########.fr       */
+/*   Updated: 2026/06/23 17:24:05 by lpedroso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,21 @@ t_sort_strategy	sort_stacks(t_stacks *st, t_flags *flags, t_bench *bench)
 	t_sort_strategy	strat;
 
 	strat = resolve_strategy(flags);
-	if (strat == SORT_SIMPLE)
-		simple_sort(&st->a, &st->b, bench);
-	else if (strat == SORT_MEDIUM)
-		medium_sort(&st->a, &st->b, bench);
+	if (flags->disorder == 0.0)
+		return (strat);
+	if (flags->args_2_sort <= 5 && flags->strategy == SORT_ADAPTIVE)
+	{
+		sort_small(&st->a, &st->b, bench);
+	}
 	else
-		complex_sort(&st->a, &st->b, bench);
+	{
+		if (strat == SORT_SIMPLE)
+			simple_sort(&st->a, &st->b, bench);
+		else if (strat == SORT_MEDIUM)
+			medium_sort(&st->a, &st->b, bench);
+		else
+			complex_sort(&st->a, &st->b, bench);
+	}
 	return (strat);
 }
 

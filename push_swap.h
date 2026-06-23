@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dda-cruz <dda-cruz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lpedroso <lpedroso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 11:33:10 by dda-cruz          #+#    #+#             */
-/*   Updated: 2026/06/16 10:35:11 by dda-cruz         ###   ########.fr       */
+/*   Updated: 2026/06/23 17:23:48 by lpedroso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_flags
 	char			**clean_argv;
 	int				clean_argc;
 	double			disorder;
+	int				args_2_sort;
 }	t_flags;
 
 typedef struct s_bench
@@ -111,6 +112,9 @@ int				ft_check_args(int argc, char **argv);
 void			assign_indice(t_list *stack_a, int size);
 double			ft_disorder(t_list *stack_a);
 
+int				ss_find_min_pos(t_list **stack_a);
+void			ss_rotate_to_top(t_list **stack_a, int pos, t_bench *bench);
+void			sort_small(t_list **stack_a, t_list **stack_b, t_bench *bench);
 void			simple_sort(t_list **stack_a, t_list **stack_b, t_bench *bench);
 void			medium_sort(t_list **stack_a, t_list **stack_b,
 					t_bench *bench);

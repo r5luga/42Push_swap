@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dda-cruz <dda-cruz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lpedroso <lpedroso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 14:33:50 by dda-cruz          #+#    #+#             */
-/*   Updated: 2026/06/16 10:30:46 by dda-cruz         ###   ########.fr       */
+/*   Updated: 2026/06/23 14:57:08 by lpedroso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,7 @@ static int	setup(int argc, char **argv, t_stacks *st, t_flags *flags)
 	st->b = NULL;
 	ini_stack(&st->a, flags->clean_argc, flags->clean_argv);
 	flags->disorder = ft_disorder(st->a);
-	if (flags->disorder == 0.0)
-	{
-		free_all(st, flags);
-		return (1);
-	}
+	flags->args_2_sort = ft_lstsize(st->a);
 	return (0);
 }
 

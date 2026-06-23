@@ -7,7 +7,8 @@ SRCS = main.c \
 	   assign_indice.c bench_cnt_a.c bench_cnt_b.c bench.c \
 	   complex_sort.c ft_check_args.c \
 	   ft_disorder.c ft_parse_flags.c main_utils.c medium_sort.c \
-	   printlist.c push.c rev_rotate.c rotate.c simple_sort.c swap.c t_list.c utils.c 
+	   printlist.c push.c rev_rotate.c rotate.c simple_sort.c sort_less_equal_five.c \
+	   sort_less_equal_five_utils.c swap.c t_list.c utils.c 
 
 OBJS = $(SRCS:.c=.o)
 
